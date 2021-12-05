@@ -12,10 +12,10 @@ import torch.optim as optim
 BUFFER_SIZE = int(1e6)  # replay buffer size
 BATCH_SIZE = 128        # minibatch size
 GAMMA = 0.99            # discount factor
-TAU = 1e-1              # for soft update of target parameters
+TAU = 1e-3              # for soft update of target parameters
 LR_ACTOR = 1e-3         # learning rate of the actor 
-LR_CRITIC = 3e-4        # learning rate of the critic
-WEIGHT_DECAY = 1e-3     # L2 weight decay
+LR_CRITIC = 1e-3        # learning rate of the critic
+WEIGHT_DECAY = 0        # L2 weight decay
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -49,7 +49,7 @@ class Agent():
         self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LR_CRITIC, weight_decay=WEIGHT_DECAY)
 
         # Noise process
-        self.noise = OUNoise((num_agents, action_size), random_seed)
+        self.noise = OUNoise(action_size, random_seed)
 
         # Replay memory
         self.memory = ReplayBuffer(action_size, BUFFER_SIZE, BATCH_SIZE, random_seed)
@@ -66,7 +66,8 @@ class Agent():
                 for i in range(10): # ADDED
                     experiences = self.memory.sample()
                     self.learn(experiences, GAMMA)
-                self.update_targets() # ADDED
+                    self.update_targets() # ADDED
+                    self.reset()
 
         self.num_steps += 1 # ADDED
 
@@ -143,10 +144,10 @@ class Agent():
 class OUNoise:
     """Ornstein-Uhlenbeck process."""
 
-    def __init__(self, shape, seed, mu=0., theta=0.15, sigma=0.1): # ADDED
+    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.1): # ADDED
         """Initialize parameters and noise process."""
-        self.shape = shape
-        self.mu = mu * np.ones(shape)
+        self.size = size
+        self.mu = mu * np.ones(size)
         self.theta = theta
         self.sigma = sigma
         self.seed = random.seed(seed)
@@ -159,7 +160,7 @@ class OUNoise:
     def sample(self):
         """Update internal state and return it as a noise sample."""
         x = self.state
-        dx = self.theta * (self.mu - x) + self.sigma * np.random.rand(*self.shape) # ADDED
+        dx = self.theta * (self.mu - x) + self.sigma * np.random.rand(self.size) # ADDED
         self.state = x + dx
         return self.state
 
