@@ -1,7 +1,3 @@
-[//]: # (Image References)
-
-[image1]: https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif "Trained Agent"
-
 # Project 1: Navigation
 
 ## Introduction
@@ -11,7 +7,7 @@ This is the first of three required projects of Udacity's Deep Reinforcement Lea
 
 For this project, I trained an agent to navigate (and collect bananas!) in a large, square world.  
 
-![Trained Agent][image1]
+![Trained Agent](https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif)
 
 A reward of +1 was provided for collecting a yellow banana, and a reward of -1 was provided for collecting a blue banana.  Thus, the agent's goal was to collect as many yellow bananas as possible while avoiding blue bananas.  
 
@@ -57,8 +53,8 @@ pip install .
 4. Clone this repository and install dependencies.
 ```bash
 cd ..
-git clone https://github.com/rnmourao/udacity-bananas.git
-cd udacity-bananas
+git clone https://github.com/rnmourao/udacity.git
+cd udacity/nanodegree/deep-reinforcement-learning/banana-collector
 pip install -r requirements.txt
 ```
 
@@ -66,7 +62,7 @@ pip install -r requirements.txt
 
     Please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux_NoVis.zip) to obtain the environment.
 
-6. Place the file into udacity-bananas folder, and unzip (or decompress) the file. 
+6. Place the file into banana-collector folder, and unzip (or decompress) the file. 
 
 7. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `drlnd` environment.  
 ```bash
