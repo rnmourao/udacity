@@ -16,6 +16,8 @@ TAU = 1e-3              # for soft update of target parameters
 LR_ACTOR = 1e-3         # learning rate of the actor 
 LR_CRITIC = 1e-3        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
+UPDATE_EVERY = 20       # skip training steps
+SAMPLES  = 10           # number of samples when training
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -62,8 +64,8 @@ class Agent():
 
         # Learn, if enough samples are available in memory
         if len(self.memory) > BATCH_SIZE:
-            if self.num_steps % 20 == 0: # ADDED
-                for i in range(10): # ADDED
+            if self.num_steps % UPDATE_EVERY == 0: # ADDED
+                for i in range(SAMPLES): # ADDED
                     experiences = self.memory.sample()
                     self.learn(experiences, GAMMA)
                     self.update_targets() # ADDED
