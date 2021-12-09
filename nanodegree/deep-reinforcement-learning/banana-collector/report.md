@@ -59,4 +59,4 @@ There are other techniques that could be used to improve the result, such as:
 
 1. MORALES, M., **Grokking Deep Reinforcement Learning**, Simon and Schuster, 2020.
 
-2. [Deep Q-Network](https://paperswithcode.com/method/dqn), Papers with Code, accessed on Oct 16th, 2021.100
+2. [Deep Q-Network](https://paperswithcode.com/method/dqn), Papers with Code, accessed on Oct 16th, 2021.
