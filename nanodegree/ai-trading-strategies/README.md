@@ -3015,3 +3015,60 @@ Steps Learned
 6. Continuous Monitoring
     * Regularly retrain the model using recent data.
     * Continuously refine for quality trades.
+
+
+
+Mastering AI Optimization Strategies
+This course focuses on enhancing AI optimization skills, specifically for trading strategies. Key areas include:
+* Model Optimization: Learn to improve AI model efficiency and performance, ensuring strategic advantage in trading.
+* Understanding Optimization: Includes a deep dive into concepts, techniques, and common pitfalls in model optimization.
+* Tools and Techniques: Gain insights into tools that improve model accuracy, reliability, and robustness.
+Course Highlights:
+* Instructor Background: Led by Farid, a seasoned data engineer with 15 years of experience in various roles such as quantitative analysis and software development.
+* Educational Approach: Combines theoretical insight with practical application, not exhaustive over every AI model but focuses on enhancing performance.
+* Practical Outcomes: Designed to equip learners with necessary tools for optimizing AI trading strategies effectively, aiming for improved risk-adjusted returns.
+Note: The course expects familiarity with broad AI workflows and assumes some foundational knowledge in AI models.
+
+
+
+**Overview of AI Trading Model Setup**
+
+This section provides a practical framework for setting up an AI trading model using a momentum-based strategy enhanced with machine learning. Here's a step-by-step guide:
+1. Define the Strategy:
+    * Use Moving Average (MA) Crossover for bullish and bearish signals.
+    * Enhance with a binary classification model to predict buy/sell opportunities.
+2. Collect Raw Data:
+    * Historical data: open, low, high, close, volume.
+    * Include a volatility index like VIX.
+3. Feature Engineering:
+    * Indicators: Lagged returns, short and long-term moving averages.
+    * Signals: Use crossover strategy as a ternary variable (1, -1, 0).
+    * Additional options: MACD, Bollinger Bands, RSI.
+4. Feature Scaling:
+    * Methods: Standardization, normalization.
+5. Define Prediction Target:
+    * Binary classification for profitable buys.
+    * Profitability threshold and time horizon as hyperparameters.
+6. Data Splitting & Validation:
+    * Test/train ratio, cross-validation with time-based methods.
+7. Model Selection:
+    * Choose model and identify related hyperparameters.
+
+
+**Evaluating AI Models in Trading**
+
+Machine learning models generally utilize performance metrics that are applicable across various industries.
+Common Traditional Metrics:
+* Regression Models: R-squared, MAE, MSE
+* Classification Models: Accuracy, Precision, Recall, F1 Score
+* Clustering: Mutual Information
+Finance-Specific Considerations:
+When applying AI to trading, it's essential to incorporate financial metrics, alongside traditional metrics.
+* Profitability and Risk: Measures like profitability, risk, necessary capital, trade frequency, and execution costs are essential in evaluating trading strategies.
+* Transition of Metrics: Start with machine learning metrics and gradually include financial metrics as the model matures.
+Financial Performance Metrics:
+* Return-Based: Annualized and cumulative returns, net profits, ROI
+* Risk-Adjusted Measures: Sharpe, Sortino, and Calmar ratios
+* Other Considerations: Transaction costs, number of trades, time between trades
+Balancing Metrics:
+Maintain a balance between machine learning metrics and financial ones to avoid pitfalls like overfitting. Always include financial metrics in back-testing and forward-testing phases to ensure comprehensive evaluation.
